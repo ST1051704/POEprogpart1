@@ -36,6 +36,24 @@ public class Mymain {
         account.setPassword(input.nextLine());
         System.out.println(account.getPasswordStatus());
     }
-    while
+    while (!account.checkCellPhoneNumber()){
+        System.out.print("Enter your cellphone number starting with +27: " );
+        account.setCellPhoneNumber(input.nextLine());
+        System.out.println(account.getCellPhoneStatus());
+    }
+    System.out.println(account.registerUser());
+    
+    //This is what happens when the login is successful after registration
+    if (account.isRegistered()) {
+    System.out.print("Enter your login username: ");
+    logUsernam = input.nextLine();
+
+    System.out.print("Enter your login password: ");
+    logPassword = input.nextLine();
+
+    account.setLoginDetails(logUsernam, logPassword);
+    System.out.println(account.returnLoginStatus());
 }
+
+    }
 }
