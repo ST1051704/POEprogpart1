@@ -16,12 +16,18 @@ import static org.junit.Assert.*;
  * @author phuti
  */
 public class LoginTest {
+    private Login login=null;
     
     public LoginTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+     
+        
+        
+        
+        
     }
     
     @AfterClass
