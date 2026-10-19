@@ -3,11 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assigment;
-
+import java.util.Random;
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author phuti
  */
+private static final Random random=new Random();
+
+private static final Set<String> usedMessageID = new HashSet<>();
 public class Message {
     //Variables to store messages
     private String messageID;
