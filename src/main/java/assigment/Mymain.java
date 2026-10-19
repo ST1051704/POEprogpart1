@@ -152,8 +152,53 @@ public class Mymain {
 
         System.out.println("Recipient: " + recipient);
         System.out.println("Message: " + messageText);
+        
+        // Ask the user what to do with the message
+boolean actionSelected = false;
 
-        System.out.println("Message draft created successfully.");
-    }
+while (!actionSelected) {
+
+    System.out.println("\nWhat would you like to do?");
+    System.out.println("1) Send Message");
+    System.out.println("2) Store Message");
+    System.out.println("3) Disregard Message");
+
+    System.out.print("Choose an option: ");
+    String action = input.nextLine();
+
+    switch (action) {
+
+        case "1":
+            System.out.println(message.sentMessage());
+
+            System.out.println("Total messages sent: "
+                    + Message.returnTotalMessages());
+
+            actionSelected = true;
+            break;
+
+        case "2":
+            System.out.println(message.storeMessage());
+            System.out.println(
+                "JSON file saving will be added next."
+            );
+
+            actionSelected = true;
+            break;
+
+        case "3":
+            System.out.println(message.disregardMessage());
+
+            actionSelected = true;
+            break;
+
+        default:
+            System.out.println(
+                "Invalid option. Please choose 1, 2 or 3."
+            );
+        
+      }
      }
+    }
+  }
 }
