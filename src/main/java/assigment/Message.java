@@ -64,6 +64,21 @@ private static final Set<String> usedMessageIDs = new HashSet<>();
 public String getMessageID(){
     return messageID;
 }
+public String createMessageHash(){
+    if(messageText == null || messageText.trim().isEmpty()){
+        return "";
+    }
+//seperating the massage into words
+String[] words= messageText.trim().split("\\s+");
+
+String firstWord = words[0];
+String lastWord = words[words.length - 1];
+
+String firsttwoDigits = messageID.substring(0,2);
+
+//Combining the two parts to create a Hash
+return firsttwoDigits + ":" + messageNum + ":" +(firstWord + lastWord).toUpperCase();
+}
 
 public static void main(String[] args){
     //Creating first message
