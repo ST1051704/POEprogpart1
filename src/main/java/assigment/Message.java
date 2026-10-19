@@ -61,6 +61,9 @@ private static final Set<String> usedMessageIDs = new HashSet<>();
         return messageText !=null
                 && messageText.length() <= 250;
     }
+public String getMessageID(){
+    return messageID;
+}
 
 public static void main(String[] args){
     //Creating first message
