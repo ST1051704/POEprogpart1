@@ -56,4 +56,37 @@ public class Mymain {
 }
 
     }
+     //Quickchat menu
+     public static void quickchatMenu(Scanner input){
+         
+         boolean running = true;
+         
+         System.out.println("Welcome to Quick chat.");
+         
+         while(running){
+            System.out.println("\nQuickChat Menu");
+            System.out.println("1) Send Messages");
+            System.out.println("2) Show recently sent messages");
+            System.out.println("3) Quit");
+            
+            System.out.println("Choose an option: ");
+            String choice = input.nextLine();
+            
+            switch(choice) {
+                
+                case "1":
+                    System.out.println("Message sending will be added next.");
+                    break;
+                 case "2":
+                    System.out.println("Will come soon");
+                    break;
+                 case "3":
+                    System.out.println("Goodbye:)");
+                    running = false;
+                    break;
+                 default:
+                     System.out.println("Invalid option. Please try again");
+            }
+         }
+     }
 }
