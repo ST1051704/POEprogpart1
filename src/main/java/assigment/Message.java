@@ -61,5 +61,25 @@ private static final Set<String> usedMessageIDs = new HashSet<>();
         return messageText !=null
                 && messageText.length() <= 250;
     }
+
+public static void main(String[] args){
+    //Creating first message
+    Message first = new Message(1,"+27873145678","Hello Raisebe");
     
+    //Second message 
+    Message second = new Message(2,"+27784567896","How are you?");
+    
+    //Display the generate IDs
+    System.out.println("First message: " + first.getMessageID());
+    
+    System.out.println("Second message: " + second.getMessageID());
+    
+     // Check the length of the IDs
+    System.out.println("First ID length: " + first.getMessageID().length());
+
+    System.out.println("Second ID length: " + second.getMessageID().length());
+ // Check that both IDs are different
+    System.out.println("IDs are different: "
+            + !first.getMessageID().equals(second.getMessageID()));
+}
 }
