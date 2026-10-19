@@ -3,22 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assigment;
+
 import java.util.Random;
 import java.util.HashSet;
 import java.util.Set;
+
 /**
  *
  * @author phuti
  */
-private static final Random random=new Random();
-
-private static final Set<String> usedMessageID = new HashSet<>();
 public class Message {
     //Variables to store messages
     private String messageID;
     private  int messageNum;
     private String recipient;
     private String messageText;
+
+    private static final Random random=new Random();
+
+private static final Set<String> usedMessageIDs = new HashSet<>();
+
     
     //Constructor
     public Message(int messageNum,String recipient,String messageText){
@@ -26,6 +30,25 @@ public class Message {
         this.messageNum = messageNum;
         this.recipient = recipient;
         this.messageText = messageText;
+        
+        this.messageID = generateMessageID();
+    }
+    //ID message method
+    private static String generateMessageID(){
+        String id;
+        
+        do{
+            StringBuilder builder = new StringBuilder();
+            
+            for (int i=0;i <10;i++){
+                builder.append(random.nextInt(10));
+            }
+            
+            id = builder.toString();
+            
+        }while (!usedMessageIDs.add(id));
+        
+        return id;  
     }
     
     //Checking if recipient's cellphone number is vaild
