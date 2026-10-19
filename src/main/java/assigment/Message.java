@@ -28,11 +28,10 @@ public class Message {
         return recipient !=null
                 && recipient.matches("^\\+27[1-9][0-9]{8}$");
     }
-    
-    
-    
-    
-    
-    
+    //Check if characters are 250 long
+    public boolean checkmessageLength(){
+        return messageText !=null
+                && messageText.length() <= 250;
+    }
     
 }
