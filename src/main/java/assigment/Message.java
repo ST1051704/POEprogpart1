@@ -72,21 +72,32 @@ private static final Set<String> usedMessageIDs = new HashSet<>();
 public String getMessageID(){
     return messageID;
 }
-public String createMessageHash(){
-    if(messageText == null || messageText.trim().isEmpty()){
+
+public String createMessageHash() {
+
+    if (messageText == null || messageText.trim().isEmpty()) {
         return "";
     }
-//seperating the massage into words
-String[] words= messageText.trim().split("\\s+");
 
-String firstWord = words[0];
-String lastWord = words[words.length - 1];
+    // Separate the message into words
+    String[] words = messageText.trim().split("\\s+");
 
-String firsttwoDigits = messageID.substring(0,2);
+    // Get the first and last words
+    String firstWord = words[0];
+    String lastWord = words[words.length - 1];
 
-//Combining the two parts to create a Hash
-return firsttwoDigits + ":" + messageNum + ":" +(firstWord + lastWord).toUpperCase();
+    // Remove punctuation
+    firstWord = firstWord.replaceAll("[^a-zA-Z0-9]", "");
+    lastWord = lastWord.replaceAll("[^a-zA-Z0-9]", "");
+
+    // Get first two digits of the message ID
+    String firsttwoDigits = messageID.substring(0, 2);
+
+    // Generate the message hash
+    return firsttwoDigits + ":" + messageNum + ":"
+            + (firstWord + lastWord).toUpperCase();
 }
+
 // This method marks a message as sent
 public String sentMessage() {
 
